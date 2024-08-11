@@ -1,12 +1,11 @@
 on late-fs
     chmod 0666 /dev/awinic_haptic
-service vibrator-hal-service /vendor/bin/hw/vendor.qti.hardware.vibrator.service
+service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service
     class hal
     user root
     group root input
     setenv RICHTAP_DEVICE_PATH /dev/awinic_haptic
     setenv ENV_RICHTAP_CONFIG_PATH /odm/etc/aac_richtap.config
-    onrestart restart vibrator
     disabled
     seclabel u:r:recovery:s0
 

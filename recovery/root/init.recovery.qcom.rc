@@ -33,6 +33,19 @@ on fs
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    symlink /dev/block/bootdevice/by-name/mdm_oem_stanvbk /dev/block/bootdevice/by-name/mdm_oem_stanvbk_a
+    symlink /dev/block/bootdevice/by-name/mdm_oem_stanvbk /dev/block/bootdevice/by-name/mdm_oem_stanvbk_b
+    symlink /dev/block/bootdevice/by-name/mdm_oem_dycnvbk /dev/block/bootdevice/by-name/mdm_oem_dycnvbk_a
+    symlink /dev/block/bootdevice/by-name/mdm_oem_dycnvbk /dev/block/bootdevice/by-name/mdm_oem_dycnvbk_b
+    symlink /dev/block/bootdevice/by-name/spunvm /dev/block/bootdevice/by-name/spunvm_a
+    symlink /dev/block/bootdevice/by-name/spunvm /dev/block/bootdevice/by-name/spunvm_b
+    symlink /dev/block/bootdevice/by-name/my_colorospro /dev/block/bootdevice/by-name/my_colorospro_a
+    symlink /dev/block/bootdevice/by-name/my_colorospro /dev/block/bootdevice/by-name/my_colorospro_b
+    symlink /dev/block/bootdevice/by-name/my_company /dev/block/bootdevice/by-name/my_company_a
+    symlink /dev/block/bootdevice/by-name/my_company /dev/block/bootdevice/by-name/my_company_b
+    symlink /dev/block/bootdevice/by-name/my_preload /dev/block/bootdevice/by-name/my_preload_a
+    symlink /dev/block/bootdevice/by-name/my_preload /dev/block/bootdevice/by-name/my_preload_b
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
     chmod 0660 /dev/qseecom
     chown system drmrpc /dev/qseecom
@@ -55,11 +68,11 @@ on property:twrp.modules.loaded=true
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
     start vendor.qseecomd
-    start touch_report
     start health-hal-2-1
-    start vibratorfeature-hal-service
+    start vibrator-hal-service
     umount /firmware
 
 on property:vendor.sys.listeners.registered=true
     start gatekeeper-1-0
     start vendor.keymaster-4-1
+

@@ -6,14 +6,14 @@
 #
 # 关于橙狐变量详见 fox_12.1/vendor/recovery/orangefox_build_vars.txt
 
-	export TW_DEFAULT_LANGUAGE="zh_CN"
+	
 	export LC_ALL="C"
 	export ALLOW_MISSING_DEPENDENCIES=true
 
-	echo -e "\x1b[96mmondrian: 开始添加OrangeFox Vars...\x1b[m"
+	echo -e "\x1b[96mudon: Set OrangeFox Vars...\x1b[m"
 	## 构建信息
 	# 设置显示在关于页面里的维护人员名称
-	export OF_MAINTAINER=ymdzq
+	export OF_MAINTAINER=EduardoA3677
 	# 设置版本号为日期
 	export FOX_VERSION=$(date +%y.%m.%d)
 	# 当你需要标记出这个recovery是一个特殊版本时使用
@@ -51,9 +51,7 @@
 	# ramdisk使用lz4压缩
 	export OF_USE_LZ4_COMPRESSION=1
 
-	# 当安装MIUI或者在MIUI上安装橙狐zip，使用magisk处理所有boot和recovery镜像，防止橙狐被MIUI官方recovery替换
-	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
-	# 避免在已加密设备上应用强制加密补丁
+
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	# 跳过FBE解密流程（防止卡在橙狐LOGO或Redmi/Mi LOGO界面）
 	# export OF_SKIP_FBE_DECRYPTION=1
@@ -95,7 +93,7 @@
 
 	## 调整刷入zip刷机包时刷机脚本要检测的相关属性
 	# 设置一个很老的build时间，用于解决某些ROM例如MIUI刷机脚本里的防回滚保护检测
-	export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"; # Tuesday, January 1, 2019 12:00:00 AM GMT+00:00
+	export FOX_BUGGED_AOSP_ARB_WORKAROUND="1601559499"; # Tuesday, January 1, 2019 12:00:00 AM GMT+00:00
 
 	# 为“快速备份”指定默认选择的分区
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
@@ -112,20 +110,17 @@
 	# 标记该设备肯定是原生Android 11+虚拟A/B（“VAB”）设备
 	export FOX_VIRTUAL_AB_DEVICE=1
 	# 指定super分区的完整大小，修复部分设备刷入miui rom失败，VAB设备专用变量
-	export OF_DYNAMIC_FULL_SIZE=9126805504
 	# 在修复或格式化f2fs数据分区之前自动卸载绑定/sdcard
 	export OF_UNBIND_SDCARD_F2FS=1
 	# 设置默认时区为北京时间
-	export OF_DEFAULT_TIMEZONE="TAIST-8;TAIDT"
 	# 支持通过修补vbmeta/vbmeta_system禁用avb2.0
 	export OF_SUPPORT_VBMETA_AVB2_PATCHING=1
 	# 安装压缩包页面选项的最大数量，调小这个值会显示滚动条（大于4小于9时生效，默认为4）
-	export OF_OPTIONS_LIST_NUM=6
 
-	F=$(find "device" -maxdepth 2 -name "mondrian")
+	F=$(find "device" -maxdepth 2 -name "udon")
 	# 修改启动画面背景色为#000000
 	\cp -fp bootable/recovery/gui/theme/portrait_hdpi/splash.xml "$F"/recovery/root/twres/splash.xml
 	sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 	sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
 
-	echo -e "\x1b[96mmondrian: 当你看到这个消息的时候，所有的OrangeFox Var已经添加完毕！\x1b[m"
+	echo -e "\x1b[96mudon: All OrangeFox Vars Loaded \x1b[m"

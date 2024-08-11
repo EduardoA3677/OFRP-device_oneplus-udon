@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_mondrian.mk
+    $(LOCAL_DIR)/twrp_udon.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_mondrian-user \
-    twrp_mondrian-userdebug \
-    twrp_mondrian-eng
+    twrp_udon-user \
+    twrp_udon-userdebug \
+    twrp_udon-eng

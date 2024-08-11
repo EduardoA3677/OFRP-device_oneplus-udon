@@ -69,7 +69,7 @@ on property:twrp.modules.loaded=true
     wait /sys/class/power_supply/battery
     start vendor.qseecomd
     start health-hal-2-1
-    start vibrator-hal-service
+    start vendor.qti.vibrator
     umount /firmware
 
 on property:vendor.sys.listeners.registered=true

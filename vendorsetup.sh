@@ -18,7 +18,8 @@
 	export FOX_VERSION=$(date +%y.%m.%d)
 	# 当你需要标记出这个recovery是一个特殊版本时使用
 	# export FOX_VARIANT=MIUI
-
+	export TARGET_DEVICE_ALT="PHK110, CPH2487, udon, OP5913L1, OP5961L1, ossi, qss"
+        export FOX_TARGET_DEVICES="PHK110, CPH2487 ,udon ,OP5913L1, OP5961L1, ossi, qssi"
 	## 添加功能
 	# 使用完整版getprop命令
 	export FOX_REPLACE_TOOLBOX_GETPROP=1
